@@ -15,5 +15,5 @@
             <li role="presentation"><a href="create.php">Create Listing</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">JobLister</h3>
+        <h3 class="text-muted"><?php echo SITE_TITLE; ?></h3>
       </div>
