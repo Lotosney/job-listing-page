@@ -11,8 +11,9 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="index.php">Home</a></li>
-            <li role="presentation"><a href="create.php">Create Listing</a></li>
+            <li role="presentation"><a href="index.php">Strona Główna</a></li>
+            <li role="presentation"><a href="create.php">Zamieść ogłoszenie</a></li>
+            <li role="presentation"><a href="login.php">Zaloguj się</a></li>
           </ul>
         </nav>
         <h3 class="text-muted"><?php echo SITE_TITLE; ?></h3>
