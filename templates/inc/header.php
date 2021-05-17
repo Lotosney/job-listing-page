@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>JobLister</title>
-	<link rel="stylesheet" href="http://bootswatch.com/flatly/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -16,6 +17,3 @@
         </nav>
         <h3 class="text-muted"></h3>
       </div>
-    </div>
-</body>
-</html>
