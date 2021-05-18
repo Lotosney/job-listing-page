@@ -52,7 +52,7 @@ class Job
 
     public function getLocation($location_id)
     {
-        $this->db->query("SELECT * FROM categories WHERE id = :location_id");
+        $this->db->query("SELECT * FROM locations WHERE id = :location_id");
 
         $this->db->bind(':location_id', $location_id);
 
@@ -76,26 +76,26 @@ class Job
 
         return $results;
     }
-    public function getJobsByCategoryLocation($category, $location)
-    {
-        $this->db->query("SELECT jobs.*, categories.name AS cname AND locations.name AS lname 
-						FROM jobs 
-						INNER JOIN categories
-						ON jobs.category_id = categories.id 
+    // public function getJobsByCategoryLocation($category, $location)
+    // {
+    //     $this->db->query("SELECT jobs.*, categories.name AS cname AND locations.name AS lname 
+	// 					FROM jobs 
+	// 					INNER JOIN categories
+	// 					ON jobs.category_id = categories.id 
                        
 
-						WHERE jobs.category_id = $category
+	// 					WHERE jobs.category_id = $category
 
-                      AND  INNER JOIN locations
-            ON jobs.location_id = locations.id 
-            WHERE jobs.location_id = $location
-						ORDER BY post_date DESC 
-						");
-        // Assign Result Set
-        $results = $this->db->resultSet();
+    //                   AND  INNER JOIN locations
+    //         ON jobs.location_id = locations.id 
+    //         WHERE jobs.location_id = $location
+	// 					ORDER BY post_date DESC 
+	// 					");
+    //     // Assign Result Set
+    //     $results = $this->db->resultSet();
 
-        return $results;
-    }
+    //     return $results;
+    // }
     public function getJobsByLocation($location)
     {
         $this->db->query("SELECT jobs.*, locations.name AS lname 
@@ -121,5 +121,27 @@ class Job
         $row = $this->db->single();
 
         return $row;
+    }
+
+    public function create($data){
+        //Insert Query
+        $this->db->query("INSERT INTO jobs (category_id, location_id, job_title, company, description,  salary, contact_user, contact_email)
+        VALUES (:category_id, :location_id,:job_title, :company, :description,  :salary, :contact_user, :contact_email)");
+        // Bind Data
+        $this->db->bind(':category_id', $data['category_id']);
+        $this->db->bind(':location_id', $data['location_id']);
+        $this->db->bind(':job_title', $data['job_title']);
+        $this->db->bind(':company', $data['company']);
+        $this->db->bind(':description', $data['description']);
+        // $this->db->bind(':location', $data['location']);
+        $this->db->bind(':salary', $data['salary']);
+        $this->db->bind(':contact_user', $data['contact_user']);
+        $this->db->bind(':contact_email', $data['contact_email']);
+        //Execute
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

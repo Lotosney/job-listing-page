@@ -8,6 +8,7 @@
         <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
       <?php endforeach; ?>
     </select>
+    <h4>lub</h4>
     <select name="location" class="form-control">
       <option value="0">Wybierz miejsce</option>
       <?php foreach ($locations as $location) : ?>
@@ -18,7 +19,7 @@
 
 
     <br>
-    <input type="submit" class="btn btn-lg btn-success" value="FIND">
+    <input type="submit" class="btn btn-lg btn-success" value="Szukaj">
   </form>
 
 
